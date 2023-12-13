@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restoran</title>
+    <style>
+        /* Internal CSS styles */
+    
+        /* Container styles */
+        .container {
+            width: 400px;
+            margin: 0 auto;
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+        }
+    
+        /* Legend styles */
+        legend {
+            font-size: 24px;
+        }
+    
+        /* Input field styles */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+    
+        /* Button styles */
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    
+        /* Small text styles */
+        .text-muted {
+            font-size: 14px;
+        }
+    
+        /* Link styles */
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="margin-top: 30px;">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4" style="color: black;">Join Now</legend>
+                {{ form.username.label_tag }}
+                {{ form.username }}
+                <br>
+                {{ form.email.label_tag }}
+                {{ form.email }}
+                <br>
+                {{ form.password1.label_tag }}
+                {{ form.password1 }}
+                <br>
+                {{ form.password2.label_tag }}
+                {{ form.password2 }}
+            </fieldset>
+            <div class="form-group" id="signup-button">
+                <button class="btn">Sign Up</button>
+            </div>
+            <div class="form-group">
+                <small class="text-muted ml-3">Already have an account? <a href="{% url 'login' %}">Sign In</a></small>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
